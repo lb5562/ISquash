@@ -1,9 +1,13 @@
+package main.java.com.example.demo;
+
 public interface PlayerInterface {
     String getName();
 
     String setName();
 
     int setWins();
+
+    
 
     void getWins();
 
