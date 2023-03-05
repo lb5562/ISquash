@@ -30,6 +30,7 @@ public class Player implements PlayerInterface{
         agility = Math.round(rand.nextDouble()*100)/100.00;
         health =100.00;
         influence =1.00;
+        this.score =0;
     }
     
     public Player(@JsonProperty("id") int player_id,@JsonProperty("name") String  name,@JsonProperty("wins") int wins,@JsonProperty("loses")int loses,@JsonProperty("serve")  double serve,@JsonProperty("backh")  double backh, @JsonProperty("fronth") double fronth,@JsonProperty("agility") double agility,@JsonProperty("health")  double health,@JsonProperty("influence") double influence){

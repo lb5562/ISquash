@@ -32,17 +32,27 @@ public class Game {
         Event event = null;
 
         while(scoreLessThanEleven(p1, p2)){
+            System.out.println(p1.getName() + ": " + p1.getScore() + "-" + p2.getName() + ": " + p2.getScore());
             event = serve(p1, p2);
+            System.out.println(p1.getName() + " served");
             if (!event.is_success()) {
+                p2.setScore(p2.getScore() + 1);
                 return event;
             }
             event = move(p2, p1);
+            System.out.println(p2.getName() + " moved");
             if (!event.is_success()) {
+                p1.setScore(p1.getScore() + 1);
+                System.out.println(p2.getName() + " moved out of bounds");
                 return event;
             }
             event = hit(p2, p1);
+            System.out.println(p2.getName() + " attemps to hit");
             if (!event.is_success()) {
+                p1.setScore(p1.getScore() + 1);
+                System.out.println(p2.getName() + " missed");
                 return event;
+
             }
             // Check for knocked out players
             if (getPassedOut(p1, p2) != null) {
@@ -61,6 +71,14 @@ public class Game {
         return event;
     }
 
+    public Player getWinner() {
+        return player1.getScore() > player2.getScore() ? player1 : player2;
+    }
+
+    
+public Status getStatus() {
+    return status;
+}
     private boolean isPassedOut(Player player) {
         return player.getHealth() <= 0;
     }
@@ -109,7 +127,7 @@ public class Game {
         double denomiator;
         denomiator = inf2 <= 0 ? 1 : inf2;
 
-        return (numerator*skill1) / (denomiator*skill2) <= num;
+        return (numerator*skill1) / (denomiator*skill2) >= num;
     }
 
 }
