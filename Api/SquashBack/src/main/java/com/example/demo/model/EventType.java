@@ -3,7 +3,8 @@ package com.example.demo.model;
 public enum EventType {
     SERVE("serve"),
     MOVE("move"),
-    HIT("hit");
+    HIT("hit"),
+    KNOCKED_OUT("knocked out!");
 
     private final String text;
     private EventType(String text){

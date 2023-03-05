@@ -1,20 +1,20 @@
 package com.example.demo.model;
 
 public enum Ball {
-    ORANGE("Orange", "Super slow", "Super low", "High altitute play", 10),
-    DOUBLE_YELLOW("Double Yellow", "Slow", "Very low", "Experienced players", 7),
-    YELLOW("Yellow", "Slow", "Low", "Advanced", 4),
-    GREEN("Green", "Medium", "Average", "Advanced", 3),
-    RED("Red", "Medium", "High", "Beginners", 2),
-    BLUE("Blue", "Fast", "Very high", "Juniors and new players", 1);
+    ORANGE("Orange", "Super slow", "Super low", "High altitute play", .10),
+    DOUBLE_YELLOW("Double Yellow", "Slow", "Very low", "Experienced players", .05),
+    YELLOW("Yellow", "Slow", "Low", "Advanced", .04),
+    GREEN("Green", "Medium", "Average", "Advanced", .03),
+    RED("Red", "Medium", "High", "Beginners", .02),
+    BLUE("Blue", "Fast", "Very high", "Juniors and new players", .01);
 
     private final String color;
     private final String bounce;
     private final String speed;
     private final String playerLvl;
-    private final int multiplier;
+    private final double multiplier;
 
-    private Ball(String color, String bounce, String speed, String playerLvl, int multiplier){
+    private Ball(String color, String bounce, String speed, String playerLvl, double multiplier){
         this.color=color;
         this.bounce=bounce;
         this.speed=speed;
@@ -38,7 +38,7 @@ public enum Ball {
         return playerLvl;
     }
 
-    public int getMultiplier() {
+    public double getMultiplier() {
         return multiplier;
     }
     

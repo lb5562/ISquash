@@ -43,14 +43,32 @@ public class Game {
             if (!event.is_success()) {
                 return event;
             }
-            if (!scoreLessThanEleven(p1, p2) && twoPointDiff(p1, p2)){
+            // Check for knocked out players
+            if (getPassedOut(p1, p2) != null) {
+                return new Event(p1.getName(), EventType.KNOCKED_OUT, false);
+            }
+            // Check for winning score
+            if ((!scoreLessThanEleven(p1, p2) && twoPointDiff(p1, p2))){
                 return event;
             }
+            // Switch servers
             placeholder = p1;
             p1 = p2;
             p2 = placeholder;
         }
         return event;
+    }
+
+    private boolean isPassedOut(Player player) {
+        return player.getHealth() <= 0;
+    }
+
+    private Player getPassedOut(Player p1, Player p2) {
+        if (isPassedOut(p1))
+            return p1;
+        if (isPassedOut(p2))
+            return p2;
+        return null;
     }
 
     private boolean scoreLessThanEleven(Player p1, Player p2){
@@ -83,7 +101,13 @@ public class Game {
     private boolean getSuccess(double skill1, double inf1, double skill2, double inf2) {
         Random rand = new Random();
         double num = Math.round(rand.nextDouble()*100)/100.00;
-        return (skill1 * inf1) / (skill2 * inf2) <= num;
+        num = num - ball.getMultiplier() > 0 ? num - ball.getMultiplier() : 0;
+        double numerator; 
+        numerator = inf1 <= 0 ? 1 : inf1;
+        double denomiator;
+        denomiator = inf2 <= 0 ? 1 : inf2;
+
+        return (numerator) / (denomiator) <= num;
     }
 
 }
