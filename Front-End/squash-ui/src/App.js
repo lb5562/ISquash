@@ -10,7 +10,8 @@ class App extends React.Component{
     this.state={
       user: [],
       players:[],
-
+      playerOne: '',
+      playerTwo: ''
     };
   }
 
@@ -38,6 +39,16 @@ class App extends React.Component{
        {console.log(error);} )
 
     }
+    SelectPlayerOne=(e)=>{
+      this.setState({
+        playerOne:e.target.value
+      });
+    }
+    SelectPlayerTwo=(e)=>{
+      this.setState({
+        playerTwo:e.target.value
+    });
+    }
 
     setPlayers(p){
       console.log(p);
@@ -56,6 +67,10 @@ class App extends React.Component{
       <Container>
         <Setup
         players = {playerList}
+        onSelectOne={i => this.SelectPlayerOne(i)}
+        onSelectTwo={i => this.SelectPlayerTwo(i)}
+        playerOne ={this.state.playerOne}
+        playerTwo ={this.state.playerTwo}
         />
        
       </Container>
