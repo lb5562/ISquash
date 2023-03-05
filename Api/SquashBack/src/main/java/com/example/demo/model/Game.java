@@ -49,7 +49,8 @@ public class Game {
             }
             // Check for winning score
             if ((!scoreLessThanEleven(p1, p2) && twoPointDiff(p1, p2))){
-                return event;
+                Player loser = p1.getScore() < p2.getScore() ? p1 : p2; 
+                return new Event(loser.getName(), EventType.LOST, false);
             }
             // Switch servers
             placeholder = p1;
