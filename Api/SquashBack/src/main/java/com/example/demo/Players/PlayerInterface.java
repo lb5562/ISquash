@@ -1,4 +1,4 @@
-package main.java.com.example.demo.Players;
+package com.example.demo.Players;
 
 public interface PlayerInterface {
     String getName();

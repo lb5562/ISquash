@@ -1,1 +1,1 @@
-package main.java.com.example.demo.Players;
+package com.example.demo.Players;

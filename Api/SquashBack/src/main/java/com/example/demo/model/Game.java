@@ -21,17 +21,44 @@ public class Game {
     }
 
     /**
-     * Keep playing rounds unntil a player has a score greater than or equal to
+     * Keep playing rounds until a player has a score greater than or equal to
      * 11 and they are at least 2 points ahead of the other player.
      */
-    public void start() {
-        
+    public Event start() {
+        Player p1 = player1;
+        Player p2 = player2;
+        Player placeholder;
+        Event event = null;
+
+        while(scoreLessThanEleven(p1, p2)){
+            event = serve(p1, p2);
+            if (!event.is_success()) {
+                return event;
+            }
+            event = move(p2, p1);
+            if (!event.is_success()) {
+                return event;
+            }
+            event = hit(p2, p1);
+            if (!event.is_success()) {
+                return event;
+            }
+            if (!scoreLessThanEleven(p1, p2) && twoPointDiff(p1, p2)){
+                return event;
+            }
+            placeholder = p1;
+            p1 = p2;
+            p2 = placeholder;
+        }
+        return event;
     }
 
-    private void round(Player p1, Player p2) {
-        serve(p1, p2);
-        move(p2, p1);
-        hit(p2, p1);
+    private boolean scoreLessThanEleven(Player p1, Player p2){
+        return p1.getScore() < 11 && p2.getScore() < 11;
+    }
+
+    private boolean twoPointDiff(Player p1, Player p2) {
+        return Math.abs(p1.getScore() - p2.getScore()) >= 2;
     }
 
     private Event serve(Player p1, Player p2) {
