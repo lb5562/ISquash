@@ -30,27 +30,32 @@ public class Game {
         Player p2 = player2;
         Player placeholder;
         Event event = null;
-
-        while(scoreLessThanEleven(p1, p2)){
+        
+        while( scoreLessThanEleven(p1, p2) || (!twoPointDiff(p1, p2) )){
+           
             System.out.println(p1.getName() + ": " + p1.getScore() + "-" + p2.getName() + ": " + p2.getScore());
             event = serve(p1, p2);
             System.out.println(p1.getName() + " served");
-            if (!event.is_success()) {
+            if (event.is_success()==false) {
+                System.out.println(p1.getName() + " faulted");
                 p2.setScore(p2.getScore() + 1);
+                SwitchPlayers();
                 return event;
             }
             event = move(p2, p1);
             System.out.println(p2.getName() + " moved");
-            if (!event.is_success()) {
+            if (event.is_success()==false) {
                 p1.setScore(p1.getScore() + 1);
                 System.out.println(p2.getName() + " moved out of bounds");
+                SwitchPlayers();
                 return event;
             }
             event = hit(p2, p1);
             System.out.println(p2.getName() + " attemps to hit");
-            if (!event.is_success()) {
+            if (event.is_success() ==false) {
                 p1.setScore(p1.getScore() + 1);
                 System.out.println(p2.getName() + " missed");
+                SwitchPlayers();
                 return event;
 
             }
@@ -58,23 +63,33 @@ public class Game {
             if (getPassedOut(p1, p2) != null) {
                 return new Event(p1.getName(), EventType.KNOCKED_OUT, false);
             }
-            // Check for winning score
-            if ((!scoreLessThanEleven(p1, p2) && twoPointDiff(p1, p2))){
-                Player loser = p1.getScore() < p2.getScore() ? p1 : p2; 
-                return new Event(loser.getName(), EventType.LOST, false);
-            }
+            
             // Switch servers
-            placeholder = p1;
-            p1 = p2;
-            p2 = placeholder;
+            //SwitchPlayers();
+            System.out.println("test");
         }
-        return event;
+        // Check for winning score
+        Player loser = p1.getScore() < p2.getScore() ? p1 : p2; 
+        System.out.println("Final score: " + p1.getName() + ": " + p1.getScore() + "-" + p2.getName() + ": " + p2.getScore());
+        System.out.print(loser.getName());
+        status = Status.LOST;
+       
+        System.out.println("");
+        return new Event(loser.getName(), EventType.LOST, false);
+        
+
+    
     }
 
     public Player getWinner() {
         return player1.getScore() > player2.getScore() ? player1 : player2;
     }
 
+    private void SwitchPlayers() {
+        Player placeholder = player1;
+        player1 = player2;
+        player2 = placeholder;
+    }
     
 public Status getStatus() {
     return status;
@@ -115,19 +130,22 @@ public Status getStatus() {
     }
 
     private Event getEvent(EventType type, boolean success){
-        return new Event("None", type, true);
+        return new Event("None", type, success);
     }
 
     private boolean getSuccess(double skill1, double inf1, double skill2, double inf2) {
         Random rand = new Random();
         double num = Math.round(rand.nextDouble()*100)/100.00;
-        num = num - ball.getMultiplier() > 0 ? num - ball.getMultiplier() : 0;
+       // num = num - ball.getMultiplier() > 0 ? num - ball.getMultiplier() : 0;
         double numerator; 
-        numerator = inf1 <= 0 ? 1 : inf1;
+        //numerator = inf1 <= 0 ? 1 : inf1;
+        numerator = inf1;
         double denomiator;
-        denomiator = inf2 <= 0 ? 1 : inf2;
-
-        return (numerator*skill1) / (denomiator*skill2) >= num;
+        denomiator = inf2;
+       // denomiator = inf2 <= 0 ? 1 : inf2;
+        //System.out.println(((((numerator*skill1) / (denomiator*skill2)))) <= num);
+        //return ((((numerator*skill1) / (denomiator*skill2)))) <= num*ball.getMultiplier()*10;
+        return numerator*skill1 >= (num*ball.getMultiplier()*10 + denomiator*skill2)/2 ;
     }
 
 }

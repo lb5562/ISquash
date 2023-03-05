@@ -24,4 +24,8 @@ public class User implements Comparable<User> {
     public String getName() {return name;}
     public void setSquashes(int squashes) {this.squashes=squashes;}
 
+    public int getSquash() {
+        return 0;
+    }
+
 }
