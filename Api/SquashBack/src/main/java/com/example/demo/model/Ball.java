@@ -2,7 +2,7 @@ package com.example.demo.model;
 
 public enum Ball {
     ORANGE("Orange", "Super slow", "Super low", "High altitute play", 10),
-    DOUBLE_YELLOW("Double Yellow", "Slow", "Very low", "Experienced players", 5),
+    DOUBLE_YELLOW("Double Yellow", "Slow", "Very low", "Experienced players", 7),
     YELLOW("Yellow", "Slow", "Low", "Advanced", 4),
     GREEN("Green", "Medium", "Average", "Advanced", 3),
     RED("Red", "Medium", "High", "Beginners", 2),

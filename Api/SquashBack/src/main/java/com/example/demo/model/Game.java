@@ -10,4 +10,12 @@ public class Game {
         this.ball = ball;
     }
 
+    public Status getStatus() {
+        return status;
+    }
+
+    public Ball getBall() {
+        return ball;
+    }
+
 }
