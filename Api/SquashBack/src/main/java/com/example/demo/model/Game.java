@@ -89,7 +89,7 @@ public class Game {
         boolean success = getSuccess(p1.getAgility(), p1.getInfluence(), p2.getAgility(), p2.getInfluence());
         return getEvent(EventType.MOVE, success);
     }
-
+    
     private Event hit(Player p1, Player p2) {
         boolean success = getSuccess(p1.getBackHand(), p1.getInfluence(), p2.getFrontHand(), p2.getInfluence());
         return getEvent(EventType.HIT, success);
@@ -108,7 +108,7 @@ public class Game {
         double denomiator;
         denomiator = inf2 <= 0 ? 1 : inf2;
 
-        return (numerator) / (denomiator) <= num;
+        return (numerator*skill1) / (denomiator*skill2) <= num;
     }
 
 }
