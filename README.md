@@ -1,4 +1,4 @@
-# ISquash
+# iSquash
 WiC-Hacks Game
 
 Hello! We are the Super Cool Hacker Group!
