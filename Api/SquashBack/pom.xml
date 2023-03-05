@@ -45,7 +45,32 @@
 			<argument></argument>
 			</configuration>
 			</plugin>
-		
+		<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>${exec.maven.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>tests-and-coverage</id>
+						<configuration>
+							<executable>mvn</executable>
+							<arguments>
+								<argument>clean</argument>
+								<argument>test-compile</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>com.example.demo.DemoApplication</mainClass>
+					<arguments></arguments>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
