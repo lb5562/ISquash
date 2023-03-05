@@ -7,9 +7,7 @@ public interface PlayerInterface {
 
     int setWins();
 
-    
-
-    void getWins();
+    int getWins();
 
     /**
      *  Each Skill is Rated between 0-1, and will be used to figure out precentage of success
@@ -20,13 +18,17 @@ public interface PlayerInterface {
 
      int getServe();
 
+     void setServe();
+
      int getBackHand();
 
+     void setBackh();
+
      int getFrontHand();
-
+     void setFrontH();
      int getAgility();
-
+     void setAgility();
      int getHealth();
-     
+     void setHealth();
 
 }

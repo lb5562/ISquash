@@ -32,9 +32,9 @@ public class Player implements PlayerInterface{
         inluence =1.00;
     }
     
-    public Player(@JsonProperty("id") private int id,@JsonProperty("name") String  name,@JsonProperty("wins") int wins,@JsonProperty("loses")int loses,@JsonProperty("serve")  double serve,@JsonProperty("backh")  double backh, @JsonProperty("fronth") double fronth,@JsonProperty("agility") double agility,@JsonProperty("health")  int health,@JsonProperty("influence")  double influence){
+    public Player(@JsonProperty("id") int player_id,@JsonProperty("name") String  name,@JsonProperty("wins") int wins,@JsonProperty("loses")int loses,@JsonProperty("serve")  double serve,@JsonProperty("backh")  double backh, @JsonProperty("fronth") double fronth,@JsonProperty("agility") double agility,@JsonProperty("health")  int health,@JsonProperty("influence")  double influence){
         this.name = name;
-        this.id=id;
+        this.id=player_id;
         this.wins = wins;
         this.loses = loses;
         this.serve = serve;
@@ -91,5 +91,45 @@ public class Player implements PlayerInterface{
     public String toString() {
         // TODO Auto-generated method stub
         return super.toString();
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setWins(int wins) {
+        this.wins = wins;
+    }
+
+    public void setLoses(int loses) {
+        this.loses = loses;
+    }
+
+    public void setServe(double serve) {
+        this.serve = serve;
+    }
+
+    public void setBackh(double backh) {
+        this.backh = backh;
+    }
+
+    public void setFronth(double fronth) {
+        this.fronth = fronth;
+    }
+
+    public void setAgility(double agility) {
+        this.agility = agility;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setInfluence(double influence) {
+        this.influence = influence;
     }
 }
