@@ -1,5 +1,5 @@
 # ISquash
-###WiC- Hacks Game
+WiC-Hacks Game
 
 Hello! We are the Super Cool Hacker Group!
 We want to introduce you to our super cool game, iSquash.
