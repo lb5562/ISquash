@@ -1,5 +1,5 @@
 # ISquash
-WiC- Hacks Game
+###WiC- Hacks Game
 
 Hello! We are the Super Cool Hacker Group!
 We want to introduce you to our super cool game, iSquash.
@@ -11,7 +11,7 @@ This affects the player/players overall performance. Did I tell you that you can
 WELL YOU CAN!
 
 
-## How to play:
+### How to play:
 
 First, You will first choose if you want to become a player of the squash game or a member of the crowd.
 
