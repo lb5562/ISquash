@@ -4,16 +4,16 @@ WiC-Hacks Game
 Hello! We are the Super Cool Hacker Group!
 We want to introduce you to our super cool game, iSquash.
 
-iSquash is an interactive game where you can choose to be a squash player or just be a part of the crowd. 
-And just because you are a part of the crowd doesn’t mean that you won’t have any influence, because YOU WILL. 
-The crowd plays a pivotal role in iSquash where they can react with yays and boos to the player/players of their choosing. 
+iSquash is an interactive game where you can choose to be a squash player or be a part of the crowd. 
+And just because you are a part of the crowd doesn’t mean that you won’t have any influence on the game, because YOU WILL. 
+As a crowd member you will play a pivotal role in iSquash by reacting with yays and boos to the player/players of your choosing. 
 This affects the player/players overall performance. Did I tell you that you can also throw squashes? 
 WELL YOU CAN!
 
 
 ### How to play:
 
-First, You will first choose if you want to become a player of the squash game or a member of the crowd.
+First, You will choose if you want to become a player of the squash game or a member of the crowd.
 
 If you choose to be a player, traditional rules of squash apply, plus you are able to react to your opponent/opponents as if you
 were a part of the crowd.
