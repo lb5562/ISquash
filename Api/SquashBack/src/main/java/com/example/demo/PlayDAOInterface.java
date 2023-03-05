@@ -9,4 +9,6 @@ public interface PlayDAOInterface{
     Player[] getPlayers() throws IOException;
 
    // Player createPlayer(String name) throws IOException;
-    Player updatePlayer(String name) throws IOException;
+    Player updatePlayer(Player p) throws IOException;
+
+}

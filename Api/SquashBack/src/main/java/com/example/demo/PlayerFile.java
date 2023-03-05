@@ -78,13 +78,6 @@ public class PlayerFile implements PlayDAOInterface{
         }
     }
 
-    @Override
-    public Player updatePlayer(String name) throws IOException {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updatePlayer'");
-    }
-
 
 
 }
-
