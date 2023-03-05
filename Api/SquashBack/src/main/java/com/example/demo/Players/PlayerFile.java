@@ -33,14 +33,52 @@ public class PlayerFile implements PlayDAOInterface{
     }
     
     private boolean save() throws IOException{
+        Player[] playerArray = getPlayerArray();
+
+        objectMapper.writeValue(new File(filename),playerArray);
+    return true;
     }
 
 
 
     @Override
     public Players[] getPlayers() throws IOException {
-        ArrayList playerList = new ArrayList<>();
-        return null;
+       synchronized(players){
+        return getPlayerArray();
+       }
+    }
+
+    private Players[] getPlayerArray() throws IOException{
+        ArrayList<Player> playerList = new ArrayList<Player>();
+
+        for( Player p:players.values()){
+            playerList.add(p);
+        }
+        Player[] playerArray = new Player[players.size()];
+        playerList.toArray(playerArray);
+        return playerArray;
+    }
+
+    @Override
+    @Override
+    public Player updatePlayer(Player p) throws IOException {
+        synchronized(players){
+            if(players.containsKey(p.getName())){
+                players.replace(p.getName(), p);
+                save();
+                return p;
+            }else{
+                save();
+                return null;
+            }
+
+        }
+    }
+    @Override
+    public Player getPlayer(String name) throws IOException {
+        synchronized(players){
+        return players.get(name);
+        }
     }
 
 }
