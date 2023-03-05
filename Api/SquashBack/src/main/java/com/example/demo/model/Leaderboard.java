@@ -1,6 +1,5 @@
-package com.model;
+package com.example.demo.model;
 
-import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
 
