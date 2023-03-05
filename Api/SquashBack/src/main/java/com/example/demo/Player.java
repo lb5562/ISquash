@@ -3,6 +3,7 @@ import java.util.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Player implements PlayerInterface{
+    
     @JsonProperty("id") private int id;
     @JsonProperty("name") private String  name;
     @JsonProperty("wins") private int wins;

@@ -24,7 +24,7 @@ public class PlayerAPI{
 
     @GetMapping("")
     public   ResponseEntity<Player[]> getPlayers() {
-       
+        LOG.info("Get /players");
         try {
             Player[] playerList = playerFile.getPlayers();
 

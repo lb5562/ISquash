@@ -18,10 +18,11 @@ public class PlayerFile implements PlayDAOInterface{
         this.filename = filename;
         this.objectMapper = object;
         load();
+        
     }
 
     private boolean load() throws IOException{
-        players = new TreeMap<>();
+       
 
         Player[] playerArray = objectMapper.readValue(new File(filename),Player[].class);
         for (Player player: playerArray){
