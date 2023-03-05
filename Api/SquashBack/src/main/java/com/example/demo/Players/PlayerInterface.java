@@ -3,12 +3,13 @@ package main.java.com.example.demo.Players;
 public interface PlayerInterface {
     String getName();
 
-    String setName();
+    void setName(String n);
 
-    int setWins();
+    void setWins(int w);
 
     int getWins();
-
+    int getLoses();
+    void setLoses(int l);
     /**
      *  Each Skill is Rated between 0-1, and will be used to figure out precentage of success
      * 
@@ -16,19 +17,30 @@ public interface PlayerInterface {
 
      //Serving skll = change of faulting
 
-     int getServe();
+     double getServe();
 
-     void setServe();
+     void setServe(double s);
 
-     int getBackHand();
 
-     void setBackh();
 
-     int getFrontHand();
-     void setFrontH();
-     int getAgility();
-     void setAgility();
-     int getHealth();
-     void setHealth();
+     double getBackHand();
+
+     void setBackh(double b);
+
+     double getFrontHand();
+     void setFronth(double f);
+
+     
+
+     double getAgility();
+
+     void setAgility(double a);
+
+     double getHealth();
+
+     void setHealth(double h);
+
+     double getInfluence();
+     void setInfluence(double i);
 
 }
