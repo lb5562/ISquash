@@ -103,4 +103,12 @@ public class Player implements PlayerInterface{
 
     public int getLoses(){return loses;}
 
+    @Override
+    public String toString() {
+        return "\nname: " + name
+        + "\nscore: " + score + "\nhealth: " + health 
+        + "\nbackh: " + backh + "\nfronth: " + fronth
+        + "\nagilty: " + agility + "\ninfluence: " + influence + "\n";
+    }
+
 }
