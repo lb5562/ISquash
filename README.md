@@ -34,3 +34,6 @@ Additionally, bets can be placed on the players with the squashes given at the s
 All players and crowd members start off with a total of 50 squashes at the beginning of the game, these squashes can be used to 
 place bets on a most favorite player or used to thrown at a despised player.
 
+### Promo Video:
+
+https://www.youtube.com/watch?v=q_t6XCd_cEk
